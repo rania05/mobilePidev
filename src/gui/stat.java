@@ -13,7 +13,7 @@ import com.codename1.charts.util.ColorUtil;
 import com.codename1.charts.views.PieChart;
 import com.codename1.ui.Form;
 import com.codename1.ui.layouts.BorderLayout;
-import entities.don;
+import entity.don;
 
 /**
  *

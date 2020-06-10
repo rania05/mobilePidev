@@ -25,7 +25,6 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
-import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.events.ActionEvent;
@@ -36,19 +35,14 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
-import com.mycompany.myapp.MyApplication;
-import entities.Camp;
-import entities.Refugie;
-import entities.don;
+import entity.don;
 import java.io.IOException;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.abs;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-import services.RefugieService;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
 import services.ServiceDon;
@@ -64,9 +58,7 @@ public class ListDonForm  extends Form  {
     Label nom;
     Container f1;
     private Resources theme;
-    
     EncodedImage enc;
- 
 
   /*  Database bd ;
     public ListDonForm(Form previous) {
@@ -81,51 +73,9 @@ public class ListDonForm  extends Form  {
      
     }*/
     
-     public ListDonForm(Form previous)  {
-         f=this;
-         setTitle("List des dons");
-        setLayout(BoxLayout.y());
-         for (don w : new ServiceDon().getAllDons())
-        {
-           
-            this.add(affichage(w));
-        }
-        this.show();
-            this.getToolbar().addCommandToLeftBar("back", MyApplication.theme.getImage("back-command.png"), ev->{
-      new AddDonForm(this,theme).show();
-        });
-            
-          
-    }
-     public Container affichage(don c){
-        Container cn1=new Container(new BorderLayout());
-        Container cn2=new Container(BoxLayout.y());
-        Button prenom=new Button("Prenom : "+c.getPrenom()+"  "+"Nom "+c.getNom());
-     //   Label nom=new Label("Nom "+c.getNom());
-     
-         Label email = new Label("email "+c.getEmail());
-             Label objet=new Label("Objet "+c.getObjet());
-   Label desc=new Label("description"+c.getDescription());
-    
-        cn2.add(prenom).addAll(email,objet,desc);
-        cn1.add(BorderLayout.WEST, cn2);
-        
-        
-       cn1.setLeadComponent(prenom);
-        return cn1;
-   
-}
-
-         
-                
-    
-    
-        
-     }
-         
-     
+     public ListDonForm() throws IOException {
       
-     /*  
+       
         f = new Form("List don");
         f1 = new Container(BoxLayout.y());
         lb = new SpanLabel("");
@@ -157,7 +107,7 @@ public class ListDonForm  extends Form  {
            
 
   
-/*
+
             f1.add(mb);
              
           
@@ -166,14 +116,14 @@ public class ListDonForm  extends Form  {
         
 
         f.getToolbar().addCommandToRightBar("back", null, (ev) -> {
-            HomeForm h = new HomeForm(res);
+            HomeForm h = new HomeForm();
             h.getF().show();
         });
     /*     f.getToolbar().addCommandToRightBar("Ajout", null, (ev) -> {
             AjoutEvenement h = new AjoutEvenement();
             h.getF().show();    
         });*/
-   /* }
+    }
 
    
     
@@ -189,4 +139,3 @@ public class ListDonForm  extends Form  {
     
 
     
-*/

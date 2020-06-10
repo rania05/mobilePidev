@@ -9,6 +9,6 @@ package gui;
  *
  * @author Nesrine
  */
-public class deleteDonForm {
+public class ModifDonForm {
     
 }

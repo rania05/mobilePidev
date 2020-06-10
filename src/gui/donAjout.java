@@ -24,10 +24,10 @@ import com.codename1.ui.list.DefaultListModel;
 import com.codename1.ui.validation.LengthConstraint;
 import com.codename1.ui.validation.NumericConstraint;
 import com.codename1.ui.validation.Validator;
-import entities.don;
+import entity.don;
 import java.io.IOException;
 import services.ServiceDon;
-
+//import gui.SendSMS;
 /**
  *
  * @author Nesrine
@@ -91,6 +91,7 @@ public class donAjout   {
                     System.out.println("erreuur");
                 a.getF().show();
             });
+            
             d.setLayout(new BorderLayout());
             d.addComponent(BorderLayout.SOUTH, ok);
             d.add(BorderLayout.CENTER, popupBody);
